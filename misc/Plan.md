@@ -34,3 +34,14 @@ I'll use the same tables for user comments but will add a column that will hold 
 I will later add them to the to the blog_posts table so the user can later create new blog posts.
 
 I will need a user_profile table that will need to hold, id, clerkid, displayname, bio
+
+---
+
+I have a profile table that holds the users display name and a biography, user_profile the biography defaults to and empty string ("") rather than null, so I always have a string to render, the profile has a normal id key as primary but I also have another text field to hold the clerk id (k_id), having two separate id's makes sense here because we may in the future change authentication provider and this should allow some flexibility in the migration.
+
+I have created a table to hold profile_comments:
+
+- id primary key.
+- A clerk id as k_id, this is the posters profile id
+- A text to hold the comment
+- foreign key 'profileid' ties this comment to a particular profile - user_profile(id)
