@@ -1,10 +1,10 @@
-As far as I can see the assignment title is a little missleading, however its aim was well explained.
+As far as I can see the assignment title is a little misleading, however its aim was well explained.
 
 WE are not required to build a social network, but rather the user access to a site, we do not need to create a system of post creation or display.
 
 We do need to handle a new user arriving on the home page and choosing to sign up or sign in.
 
-1. If signed in they should be able to view thier profile.
+1. If signed in they should be able to view their profile.
 2. If the profile does not exist they should be directed to the profile edit page.
 3. The profile edit page will only handle new profile data at this time.
 4. If the profile page exists it will be displayed.
@@ -13,7 +13,7 @@ We do need to handle a new user arriving on the home page and choosing to sign u
 7. The user profile page needs a form to add posts.
 8. The user profile page needs display posts the user has created.
 
-notes 7 and 8 are needed to meet the last requirment:
+notes 7 and 8 are needed to meet the last requirement:
 
 🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
 
