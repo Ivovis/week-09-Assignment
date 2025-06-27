@@ -17,7 +17,7 @@ notes 7 and 8 are needed to meet the last requirement:
 
 🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
 
-Manny said we do not need to exactly that! will need to clarify.
+Manny said we do not need to create posts - exactly that! will need to clarify.
 
 To play safe I will include comments for the user profile page.
 

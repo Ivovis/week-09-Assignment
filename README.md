@@ -25,3 +25,15 @@
 🎯 Enable users to create a user profile, and input profile information (such as a user biography) using a form. Users and user information should be stored in their own table in the database and handled with an appropriate route (e.g. /user/[userId]).
 
 🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
+
+---
+
+### Checkpoint 1
+
+I now have a basic page with Home,Profile,Sign in,Sign up and About page, I have the header functionality working, as can be seen here.
+
+<img src="./misc/W9-NotLoggedIn.png" alt="not logged in web page" width="400"/><img src="./misc/W9-LoggedIn.png" alt="logged in web page" width="400"/>
+
+I do not have authentication page protection at this stage, I plan to add this in when I have a something more to protect.
+
+---
