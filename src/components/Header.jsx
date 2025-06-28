@@ -18,6 +18,7 @@ export default async function Header() {
         <Link href="/">Home</Link>
         <SignedIn>
           <Link href={`/user/${userId}`}>Profile</Link>
+          <Link href={`/newpost/`}>New Post</Link>
           <UserButton />
         </SignedIn>
         <SignedOut>

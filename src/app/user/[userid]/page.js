@@ -65,7 +65,8 @@ export default async function User({ params }) {
         {data.bio}
       </div>
 
-      <div className="flex justify-around p-5">{data.name}&apos;s Comments</div>
+      <div className="flex justify-around p-5">{data.name}&apos;s Posts</div>
+      {/* add component to show users posts here */}
     </>
   );
 }

@@ -37,3 +37,15 @@ I now have a basic page with Home,Profile,Sign in,Sign up and About page, I have
 I do not have authentication page protection at this stage, I plan to add this in when I have a something more to protect.
 
 ---
+
+### Checkpoint 2
+
+Up until now I've had a complete misunderstanding of the assignment, I understand that I need to use an external component library, on the one hand Manny noted that we do not need to create,update or delete posts (44.53 in the recording), this caused some confusion when looking at the last requirement in the list:
+
+🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page.
+
+After reviewing the recording I suspect that Manny was referring to 'comments on posts' - I recommend that Tech Ed differentiate between the different things that can be called posts - Blog posts, comment posts, profile posts, you get the idea.
+
+This requirement above (create posts associated with their Clerk userId) has been met, when the user visits the profile button in the navigation bar if no profile exists they will be directed to a form to create a profile -> this is a 'post' that gets saved in the user_profile table containing Display Name, Bio and the clerk userId and these (name and bio) _are_ displayed on the users profile page - little voice in my head - "but Chris we said posts - plural" so I will also add a post creation mechanism so I am going for belts and braces after the stinging markdown last week after I successfully implemented deletion of 'the wrong post' I will also add post creation this week. (I'm still mad about that, like the week 4 assignment score not being corrected, I'm building up for a rage quit!)
+
+As we stand with this commit I have added a 'newpost' route and this has been protected using clerk, its a placeholder at this stage but I have been able use it to test the clerk based access control and it is working.
