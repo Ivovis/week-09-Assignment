@@ -1,23 +1,37 @@
+"use server";
 // This component will display all the comments from every user if who=""
 // and all the comments from a particular user when who="{userId}" the clerk userId
 
-export default function CommentList(props) {
+import { db } from "@/utils/dbConnection";
+
+export default async function CommentList(props) {
   // get props
   console.log("=============\n", props.who);
 
+  let query = null;
+
   if (props.who === "") {
-    // get the full list
-    return (
-      <>
-        <p className="flex justify-around p-5">EVERYONE</p>
-      </>
+    query = await db.query(`SELECT * FROM profile_comments ORDER BY id DESC`);
+  } else {
+    query = await db.query(
+      `SELECT * FROM profile_comments WHERE k_id = $1 ORDER BY id DESC`,
+      [props.who]
     );
   }
 
+  console.log("------db returned------\n", query.rows);
+  const data = query.rows;
+
   return (
-    //get the posts from a single user
-    <div>
-      <p className="flex justify-around p-5">Just him</p>
-    </div>
+    <>
+      <section className="flex-col h-lvh  overflow-y-auto  border-2 p-2 mt-3 rounded-2xl">
+        {data.map((comment) => (
+          <p
+            key={comment.id}
+            className="flex p-3 m-2 gap-2 text-xs border-2 rounded-2xl "
+          >{`${comment.name}: ${comment.comment}`}</p>
+        ))}
+      </section>
+    </>
   );
 }

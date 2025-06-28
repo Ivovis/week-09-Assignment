@@ -5,6 +5,7 @@ import NewProfileForm from "@/components/NewProfileForm";
 import CommentList from "@/components/CommentList";
 
 export default async function User({ params }) {
+  "use server";
   // used to define the profile to view
   const param = await params;
   console.log("param id:", param.userid);

@@ -52,6 +52,26 @@ As we stand with this commit I have added a 'newpost' route and this has been pr
 
 ---
 
+### Checkpoint 3
+
+I now have a the newpost route working, rediecting the user back to their profile page displaying the new post, the Home page displays all posts, in both cases the latest post is at the top, I use a single component for this - CommentList.jsx it is is given a who="" we get the full list if we use who={clerk-user-id} we get just the posts from the correct user.
+
+If a user tries to make a post without first creating a profile they will be directed to profile creation page.
+
+If a user enters /newpost and are not logged in they will be redirected to the sign in page.
+
+requirements check:
+
+🎯 Set up user sign-up and user login using Clerk. - DONE
+
+🎯 Enable users to create a user profile, and input profile information (such as a user biography) using a form. Users and user information should be stored in their own table in the database and handled with an appropriate route (e.g. /user/[userId]). - DONE
+
+🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page. - DONE
+
+next up I want to create a page to display on error and(or) not found.
+
+---
+
 notes:
 
 Another student noted that playing with a component library cleared out their default styles, so I saved mine to /misc/backup-globals.css

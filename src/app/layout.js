@@ -32,10 +32,12 @@ export default function RootLayout({ children }) {
     <ClerkProvider appearance={{ cssLayerName: "clerk" }}>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-[20rem] md:max-w-[46rem] mx-auto`}
+          className={`flex flex-col min-h-screen max-w-5xl mx-auto px-4 py-6 ${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Header />
-          {children}
+          <div className="w-11/12 mx-auto flex flex-col flex-grow">
+            {children}
+          </div>
           <Footer />
         </body>
       </html>
