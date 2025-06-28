@@ -60,6 +60,8 @@ If a user tries to make a post without first creating a profile they will be dir
 
 If a user enters /newpost and are not logged in they will be redirected to the sign in page.
 
+I managed to wrangle my styling into what I actually wanted.
+
 requirements check:
 
 🎯 Set up user sign-up and user login using Clerk. - DONE
