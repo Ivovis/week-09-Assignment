@@ -45,3 +45,24 @@ I have created a table to hold profile_comments:
 - A clerk id as k_id, this is the posters profile id
 - A text to hold the comment
 - foreign key 'profileid' ties this comment to a particular profile - user_profile(id)
+
+add error handling - done
+
+---
+
+Sunday...
+
+Add something nice to demonstrate use of external library (Use 1 or more Radix UI Primitive component)
+
+use the switch to change the order of posts in the CommentList component?
+
+Stretch goals:
+
+🏹 Ensure that a user’s biography cannot be left blank. If a user logs in without one, prompt them to add this information.
+
+login page redirect using clerks redirect feature?
+
+login -> check profile exists -> if no -> redirect to profile creation page
+if yes -> redirect to profile page
+
+make a checkprofile route? for clerk to call ?

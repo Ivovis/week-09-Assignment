@@ -5,11 +5,11 @@
 import { db } from "@/utils/dbConnection";
 
 export default async function CommentList(props) {
-  // get props
-  console.log("=============\n", props.who);
-
+  // The query will be conditionally called
   let query = null;
 
+  // if no clerk id is provided we render all comments
+  // else we render all the comments for the clerk id
   if (props.who === "") {
     query = await db.query(`SELECT * FROM profile_comments ORDER BY id DESC`);
   } else {
@@ -19,7 +19,6 @@ export default async function CommentList(props) {
     );
   }
 
-  console.log("------db returned------\n", query.rows);
   const data = query.rows;
 
   return (

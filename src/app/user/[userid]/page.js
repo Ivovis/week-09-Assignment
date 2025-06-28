@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
+import { redirect, notFound } from "next/navigation";
 import { db } from "@/utils/dbConnection";
 import NewProfileForm from "@/components/NewProfileForm";
 import CommentList from "@/components/CommentList";
@@ -24,7 +24,6 @@ export default async function User({ params }) {
 
   // have we got a profile for this user?
   //  1. get any/all rows that match in the profile table
-
   const query = await db.query(
     `SELECT * FROM user_profile WHERE k_id = $1 ORDER BY id DESC`,
     [param.userid]
@@ -33,18 +32,32 @@ export default async function User({ params }) {
   // 2. if no profiles found and the visitor is the owner of this profile -> display the newprofile page
   if (query.rowCount === 0 && param.userid === userId) {
     return <NewProfileForm userid={userId} />;
-  } else if (query.rowCount === 0) {
+  } else if (query.rowCount === -1) {
+    // this will not now be called, to force the use of the
+    // add not found text below, a case of two tails one dog.
+
     // visitor is jumping onto a userID that has no profile
-    // this should never happen, likely someone has altered the url looking for vulnerabilities
-    // with more time I would render a random fake profile here using the param.userid as the
-    // random seed so they see the same profile for a given url
+    // this should never happen, likely someone has altered
+    // the url looking for vulnerabilities with more time I
+    // would render a random fake profile here using the
+    // param.userid as the random seed so they see the same
+    // profile for a given url
     return (
       <>
         <div className="flex justify-around p-5">
           This users profile does not exist
         </div>
       </>
+      // theres no exit link here as the nav bar provides a way to return.
     );
+  }
+
+  // The above code already existed however we have a requirement
+  // to use notFound() below is a repeat of the above test to see
+  // it working change the above test to '=== -1' and visit a
+  // non existing user profile
+  if (query.rowCount === 0) {
+    notFound();
   }
 
   // we have at least 1 rows so at least one profile, use the first returned

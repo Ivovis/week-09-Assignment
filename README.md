@@ -54,7 +54,7 @@ As we stand with this commit I have added a 'newpost' route and this has been pr
 
 ### Checkpoint 3
 
-I now have a the newpost route working, rediecting the user back to their profile page displaying the new post, the Home page displays all posts, in both cases the latest post is at the top, I use a single component for this - CommentList.jsx it is is given a who="" we get the full list if we use who={clerk-user-id} we get just the posts from the correct user.
+I now have a the newpost route working, redirecting the user back to their profile page displaying the new post, the Home page displays all posts, in both cases the latest post is at the top, I use a single component for this - CommentList.jsx it is is given a who="" we get the full list if we use who={clerk-user-id} we get just the posts from the correct user.
 
 If a user tries to make a post without first creating a profile they will be directed to profile creation page.
 
@@ -71,6 +71,18 @@ requirements check:
 🎯 Enable users to create posts associated with their Clerk userId. Posts should be displayed on the user’s profile page. - DONE
 
 next up I want to create a page to display on error and(or) not found.
+
+---
+
+### Checkpoint 4
+
+not-found implemented for the profile route and site global route, I could not get the global-error.js to trigger, I placed a throw call in the about page but the error was caught by the dev environment so i have been unable to test it.
+
+I did already have 'profile not found' error handling in user/[userid]/page.js but I have disabled it so the assignment requirement can be used instead.
+
+🎯 Create and display an error/not found page if the user visits a page that doesn’t exist. - DONE
+
+I get to play with Radix next ...
 
 ---
 

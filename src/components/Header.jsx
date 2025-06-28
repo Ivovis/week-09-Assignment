@@ -14,7 +14,7 @@ export default async function Header() {
 
   return (
     <>
-      <div className="flex justify-around p-2  mb-4 h-12 items-center border-2 rounded-2xl font-[family-name:var(--font-geist-sans)]">
+      <div className="flex justify-around p-2  mb-4 h-22 items-center border-2 rounded-2xl font-[family-name:var(--font-geist-sans)]">
         <Link href="/">Home</Link>
         <SignedIn>
           <Link href={`/user/${userId}`}>Profile</Link>
