@@ -14,7 +14,7 @@ export default async function Header() {
 
   return (
     <>
-      <div className="flex justify-around p-2  m-2 mb-4 items-center border-2 rounded-2xl font-[family-name:var(--font-geist-sans)]">
+      <div className="flex justify-around p-2 m-2 mb-4 items-center border-2 rounded-2xl font-[family-name:var(--font-geist-sans)]">
         <Link href="/">Home</Link>
         <SignedIn>
           <Link href={`/user/${userId}`}>Profile</Link>
@@ -23,7 +23,7 @@ export default async function Header() {
         <SignedOut>
           <div className="flex justify-between gap-3">
             <SignInButton mode="modal" />
-            <SignUpButton />
+            <SignUpButton mode="modal" />
           </div>
         </SignedOut>
         <Link href="/about">About</Link>
