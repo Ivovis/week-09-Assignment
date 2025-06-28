@@ -46,6 +46,12 @@ Up until now I've had a complete misunderstanding of the assignment, I understan
 
 After reviewing the recording I suspect that Manny was referring to 'comments on posts' - I recommend that Tech Ed differentiate between the different things that can be called posts - Blog posts, comment posts, profile posts, you get the idea.
 
-This requirement above (create posts associated with their Clerk userId) has been met, when the user visits the profile button in the navigation bar if no profile exists they will be directed to a form to create a profile -> this is a 'post' that gets saved in the user_profile table containing Display Name, Bio and the clerk userId and these (name and bio) _are_ displayed on the users profile page - little voice in my head - "but Chris we said posts - plural" so I will also add a post creation mechanism so I am going for belts and braces after the stinging markdown last week after I successfully implemented deletion of 'the wrong post' I will also add post creation this week. (I'm still mad about that, like the week 4 assignment score not being corrected, I'm building up for a rage quit!)
+This requirement above (create posts associated with their Clerk userId) has been met, when the user visits the profile button in the navigation bar if no profile exists they will be directed to a form to create a profile -> this is a 'post' that gets saved in the user*profile table containing Display Name, Bio and the clerk userId and these (name and bio) \_are* displayed on the users profile page - little voice in my head - "but Chris we said posts - plural" so I will also add a post creation mechanism so I am going for belts and braces after the stinging markdown last week after I successfully implemented deletion of 'the wrong post' I will also add post creation this week. (I'm still mad about that, like the week 4 assignment score not being corrected, I'm building up for a rage quit!)
 
 As we stand with this commit I have added a 'newpost' route and this has been protected using clerk, its a placeholder at this stage but I have been able use it to test the clerk based access control and it is working.
+
+---
+
+notes:
+
+Another student noted that playing with a component library cleared out their default styles, so I saved mine to /misc/backup-globals.css

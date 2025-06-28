@@ -2,38 +2,23 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { db } from "@/utils/dbConnection";
 import NewProfileForm from "@/components/NewProfileForm";
+import CommentList from "@/components/CommentList";
 
 export default async function User({ params }) {
-  // Mental note params  not props!
+  // used to define the profile to view
   const param = await params;
   console.log("param id:", param.userid);
 
+  // could check here that the param.userid is in a valid format - not in scope for the assignment,
+
+  // used to identify 'a' logged in user
   const { userId } = await auth();
   console.log("auth  id:", userId);
 
-  // I was using props instead of params and couldn't get it to work ...
-  // I then used auth() to get the data I wanted , but checked with many
-  // and found out I should be using params for url info
-
-  // this got me to wondering if I can use this to detect if the param has been modified my an evil hacker
-
-  if (param.userid === userId) {
-    console.log("good url");
-  } else {
-    if (userId == null) {
-      console.log("not logged in");
-      // we don't have persistent login, so just get the user to login
-      // this will leave the user on the home page
-      // ideally this would after login redirect back here - not sure how to do this yet.
-      redirect("/sign-in");
-    }
-
-    // arriving here indicates that userId is a person up to no good
-    // out of scope for this project, but one could present random fake
-    // profiles here using the bad url as the seed.
-    console.log("bad url");
-    // for now just kick them back to the home page.
-    redirect("/");
+  // if the userId is null the user is not logged in
+  if (userId == null) {
+    console.log("not logged in");
+    redirect("/sign-in");
   }
 
   // have we got a profile for this user?
@@ -41,21 +26,31 @@ export default async function User({ params }) {
 
   const query = await db.query(
     `SELECT * FROM user_profile WHERE k_id = $1 ORDER BY id DESC`,
-    [userId]
+    [param.userid]
   );
 
-  console.log("profile search returned: ", query.rowCount);
-
-  // 2. if no profiles found -> display the newprofile page
-
-  if (query.rowCount === 0) {
+  // 2. if no profiles found and the visitor is the owner of this profile -> display the newprofile page
+  if (query.rowCount === 0 && param.userid === userId) {
     return <NewProfileForm userid={userId} />;
+  } else if (query.rowCount === 0) {
+    // visitor is jumping onto a userID that has no profile
+    // this should never happen, likely someone has altered the url looking for vulnerabilities
+    // with more time I would render a random fake profile here using the param.userid as the
+    // random seed so they see the same profile for a given url
+    return (
+      <>
+        <div className="flex justify-around p-5">
+          This users profile does not exist
+        </div>
+      </>
+    );
   }
 
-  // not zero rows so at least one profile, use the first the rest should'nt exist - ignore them!
+  // we have at least 1 rows so at least one profile, use the first returned
+  // the rest should'nt exist - I'll just ignore them now (or later log it for investigation)
   const data = query.rows[0];
 
-  // if yes display the profile page
+  // display the profile page
   console.log("the profile", data);
 
   return (
@@ -67,6 +62,7 @@ export default async function User({ params }) {
 
       <div className="flex justify-around p-5">{data.name}&apos;s Posts</div>
       {/* add component to show users posts here */}
+      <CommentList who={userId} />
     </>
   );
 }
