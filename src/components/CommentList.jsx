@@ -3,6 +3,7 @@
 // and all the comments from a particular user when who="{userId}" the clerk userId
 
 import { db } from "@/utils/dbConnection";
+import Link from "next/link";
 
 export default async function CommentList(props) {
   // The query will be conditionally called
@@ -23,12 +24,13 @@ export default async function CommentList(props) {
 
   return (
     <>
-      <section className="flex flex-col  h-lvh  overflow-y-auto  border-2 p-2 mt-3 rounded-2xl">
+      <section className="flex flex-col custom-height overflow-y-auto border-2 p-2 mt-3 rounded-2xl">
         {data.map((comment) => (
-          <p
+          <Link
             key={comment.id}
+            href={`/user/${comment.k_id}`}
             className="flex p-3 m-2 gap-2 text-xs border-2 rounded-2xl "
-          >{`${comment.name}: ${comment.comment}`}</p>
+          >{`${comment.name}: ${comment.comment}`}</Link>
         ))}
       </section>
     </>

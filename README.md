@@ -102,6 +102,18 @@ I implemented a custom error message for when a user visited another users profi
 
 ---
 
+### Checkpoint 6
+
+I have converted the raw list of all comments on the home page into Links clicking them will take the user to the comment creators profile.
+
+🏹 Allow users to view other profiles directly from posts they see on the global timeline, using a dynamic users route. - DONE
+
+🏹 Ensure that a user’s biography cannot be left blank. If a user logs in without one, prompt them to add this information. - DONE
+
+🏹 Create and display an error/not found page if the user visits another users profile that doesn’t exist. - DONE
+
+---
+
 ### Reflection
 
 Required
@@ -120,6 +132,10 @@ I do not have a clear understanding how to use client and server side rendering.
 I am sure I have forgotten some important aspect.
 
 For instance if I wanted to reverse the order of the comments I would need a button client side that would render the list the other way round - but the list is rendered server side. I am still somewhat confused how this should be done correctly. I plan to on researching this whole concept more once I have more time.
+
+I tried in vain to tidy up one last styling feature, I have a header, comment list and footer elements, I wanted the footer to always be at the bottom of the viewable screen, and I have the comment section using overflow-y-auto so if there are enough comments they can be scrolled in the available space beween the head and footer, for the life of me I could not get this to work, I always end up with a scroll bar on the browser window, when viewed on a mobile device the content is always larger than the screen, I have implemented @media in the global.css and proved this is working with different background colours - I don't like this but I am hoping the mobile device will look better (this is may last readme update and this commit will push these changes to vercel so I'll be able to test on an actual device)
+
+Over all I've arrived mostly where I wanted to be.
 
 ---
 

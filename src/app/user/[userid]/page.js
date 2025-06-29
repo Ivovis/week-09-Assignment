@@ -7,8 +7,9 @@ import CommentList from "@/components/CommentList";
 export default async function User({ params }) {
   "use server";
   // used to define the profile to view
-  const param = await params;
-  // console.log("param id:", param.userid);
+  const p = await params;
+
+  const targetId = p.userid;
 
   // could check here that the param.userid is in a valid format - not in scope for the assignment,
 
@@ -26,11 +27,11 @@ export default async function User({ params }) {
   //  1. get any/all rows that match in the profile table
   const query = await db.query(
     `SELECT * FROM user_profile WHERE k_id = $1 ORDER BY id DESC`,
-    [param.userid]
+    [targetId]
   );
 
   // 2. if no profiles found and the visitor is the owner of this profile -> display the newprofile page
-  if (query.rowCount === 0 && param.userid === userId) {
+  if (query.rowCount === 0 && targetId === userId) {
     return <NewProfileForm userid={userId} />;
   } else if (query.rowCount === -1) {
     // this will not now be called, to force the use of the
@@ -76,7 +77,7 @@ export default async function User({ params }) {
 
       <div className="flex justify-around p-5">{data.name}&apos;s Posts</div>
       {/* add component to show users posts here */}
-      <CommentList who={userId} />
+      <CommentList who={targetId} />
     </>
   );
 }

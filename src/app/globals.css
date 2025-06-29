@@ -25,3 +25,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media (max-height: 667px) {
+  .custom-height {
+    height: 60lvh;
+    /* background-color: blue; */
+  }
+}
+
+@media (min-height: 668px) {
+  .custom-height {
+    height: 100lvh;
+    /* background-color: red; */
+  }
+}
