@@ -4,7 +4,6 @@ import { redirect } from "next/navigation";
 
 export default async function NewProfileForm(props) {
   const userId = props.userid;
-  console.log("sanity check userid is :", userId);
 
   async function handleSubmit(formData) {
     "use server";
@@ -20,14 +19,13 @@ export default async function NewProfileForm(props) {
     // would be easy to check - no idea how to force the user to change it
     // I could just reload the component but the bio data would be lost
     // its not an assignment requirement so I will allow duplicate names for now
-    console.log("============================================");
+
     db.query(`INSERT INTO user_profile(name,bio,k_id) VALUES ($1,$2,$3)`, [
       formData.name,
       formData.bio,
       userId,
     ]);
 
-    console.log("++++++++++++++++++++++++++++++++++++++++++++");
     // revalidate
     revalidatePath(`/user/${userId}`);
 

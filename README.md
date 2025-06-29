@@ -86,6 +86,43 @@ I get to play with Radix next ...
 
 ---
 
+### Checkpoint 5
+
+I have added a Switch from Radix-UI it has been placed on the about page, the about page is now infinitely more interesting than it was.
+
+🎯 Use 1 or more Radix UI Primitive component, or something similar (e.g. use of a different component library to enhance UX, not just Tailwind). - Done.
+
+A user with no profile will now be directed to the new profile form after signing in.
+
+🏹 Ensure that a user’s biography cannot be left blank. If a user logs in without one, prompt them to add this information. - Done.
+
+I implemented a custom error message for when a user visited another users profile when it did not exist, this was later altered to use a not-found.js page to meet the second requirement.
+
+🏹 Create and display an error/not found page if the user visits another users profile that doesn’t exist. - Done.
+
+---
+
+### Reflection
+
+Required
+
+🎯 What requirements did you achieve?
+
+all of them.
+
+🎯 Were there any requirements or goals that you were unable to achieve?
+
+none.
+
+🎯 If so, what was it that you found difficult about these tasks?
+
+I do not have a clear understanding how to use client and server side rendering.
+I am sure I have forgotten some important aspect.
+
+For instance if I wanted to reverse the order of the comments I would need a button client side that would render the list the other way round - but the list is rendered server side. I am still somewhat confused how this should be done correctly. I plan to on researching this whole concept more once I have more time.
+
+---
+
 notes:
 
 Another student noted that playing with a component library cleared out their default styles, so I saved mine to /misc/backup-globals.css

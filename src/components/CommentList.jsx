@@ -23,7 +23,7 @@ export default async function CommentList(props) {
 
   return (
     <>
-      <section className="flex-col h-lvh  overflow-y-auto  border-2 p-2 mt-3 rounded-2xl">
+      <section className="flex flex-col  h-lvh  overflow-y-auto  border-2 p-2 mt-3 rounded-2xl">
         {data.map((comment) => (
           <p
             key={comment.id}

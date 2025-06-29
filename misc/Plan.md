@@ -52,17 +52,14 @@ add error handling - done
 
 Sunday...
 
-Add something nice to demonstrate use of external library (Use 1 or more Radix UI Primitive component)
+Add something nice to demonstrate use of external library (Use 1 or more Radix UI Primitive component) - Done
 
-use the switch to change the order of posts in the CommentList component?
+have a look at body hight setting - its too large it should be limited to the physical screen height or browser window height - atm its causing window scrolling for the whole screen. - over an hour spent fiddling around and asking google silly questions - abandoned
+
+use the switch to change the order of posts in the CommentList component? - not really needed, demo of radix-ui component use on the about page.
 
 Stretch goals:
 
-🏹 Ensure that a user’s biography cannot be left blank. If a user logs in without one, prompt them to add this information.
+🏹 Ensure that a user’s biography cannot be left blank. If a user logs in without one, prompt them to add this information. - DONE
 
-login page redirect using clerks redirect feature?
-
-login -> check profile exists -> if no -> redirect to profile creation page
-if yes -> redirect to profile page
-
-make a checkprofile route? for clerk to call ?
+Add/convert comment list into links to the posters profile page

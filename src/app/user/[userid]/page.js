@@ -8,13 +8,13 @@ export default async function User({ params }) {
   "use server";
   // used to define the profile to view
   const param = await params;
-  console.log("param id:", param.userid);
+  // console.log("param id:", param.userid);
 
   // could check here that the param.userid is in a valid format - not in scope for the assignment,
 
   // used to identify 'a' logged in user
   const { userId } = await auth();
-  console.log("auth  id:", userId);
+  // console.log("auth  id:", userId);
 
   // if the userId is null the user is not logged in
   if (userId == null) {
@@ -65,7 +65,7 @@ export default async function User({ params }) {
   const data = query.rows[0];
 
   // display the profile page
-  console.log("the profile", data);
+  // console.log("the profile", data);
 
   return (
     <>
